@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{4ed66242-60a2-44d1-9663-12e269c14486}">
+		<property name="assetPath">
+			<value>night_music.aif</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>146.25</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{343a87dc-c4d2-40ad-95e2-3ea1235c996b}</destination>
+		</relationship>
+	</object>
+</objects>
