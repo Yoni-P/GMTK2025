@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Test
+  m_Name: Leaf
   m_Shader: {fileID: -6465566751694194690, guid: 57658bb6af3b30947810f60f08e73035, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -45,10 +45,10 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Shades: 0.45
-    - _max: 0.68
-    - _min: 0.69
+    - _max: 0.52
+    - _min: 0.35
     m_Colors:
-    - _Color: {r: 0.534929, g: 0.7294118, b: 0.3137255, a: 0}
+    - _Color: {r: 0.38338608, g: 0.6901961, b: 0.32941177, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7790278661160130728
