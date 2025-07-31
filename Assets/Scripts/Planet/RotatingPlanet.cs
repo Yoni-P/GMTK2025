@@ -58,7 +58,7 @@ public class RotatingPlanet : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, startAngle + angle);
     }
     
-    public void StartRotation()
+    public virtual void StartRotation()
     {
         splineAnimator.Play();
         if (lightSource != null)
@@ -77,7 +77,7 @@ public class RotatingPlanet : MonoBehaviour
     //     lightSequence?.Pause();
     // }
 
-    public void RestartRotation()
+    public virtual void RestartRotation()
     {
         splineAnimator.Restart(false);
         lightSequence?.Kill();

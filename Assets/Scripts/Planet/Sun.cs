@@ -1,6 +1,40 @@
+using FMODUnity;
 using UnityEngine;
 
 public class Sun : RotatingPlanet
 {
+    [SerializeField] private StudioEventEmitter screamEmitter;
+
+    protected new void Update()
+    {
+        screamEmitter.EventInstance.getParameterByName("scream", out var screamParameter);
+        var newScreamValue = Mathf.MoveTowards(screamParameter, 1f, Time.deltaTime * 0.3f);
+        newScreamValue = Mathf.Min(newScreamValue, GetMaxScreamValue(GetProgress()));
+        screamEmitter.EventInstance.setParameterByName("scream", newScreamValue);
+    }
     
+    private float GetMaxScreamValue(float progress)
+    {
+        if (progress < 0.8f)
+        {
+            return 1f;
+        }
+        else
+        {
+            return (1 - progress) * 5f; // Decrease scream value as progress approaches 1
+        }
+    }
+    
+    public override void StartRotation()
+    {
+        base.StartRotation();
+        screamEmitter.EventInstance.setParameterByName("scream", 0f);
+        screamEmitter.Play();
+    }
+    
+    public override void RestartRotation()
+    {
+        base.RestartRotation();
+        screamEmitter.Stop();
+    }
 }

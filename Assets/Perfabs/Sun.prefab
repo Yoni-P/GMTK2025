@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5408299111981131539}
   - component: {fileID: 1319384132797223229}
   - component: {fileID: 7423450408096259484}
+  - component: {fileID: 5729584251920132648}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -150,6 +151,40 @@ MonoBehaviour:
   earth: {fileID: 0}
   splineAnimator: {fileID: 1319384132797223229}
   lightSource: {fileID: 7903289750971633032}
+  screamEmitter: {fileID: 5729584251920132648}
+--- !u!114 &5729584251920132648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5256098847469876081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1979676889
+      Data2: 1230814867
+      Data3: -1847771508
+      Data4: -888024502
+    Path: event:/ScreamTemp
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: scream
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5750892016353662636
 GameObject:
   m_ObjectHideFlags: 0
