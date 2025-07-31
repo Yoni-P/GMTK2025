@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{cca24e9e-b0c1-4329-8cdb-8e045efa3840}">
+		<property name="assetPath">
+			<value>FF_HN_vocal_male_scream_long.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.945532879818594</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{343a87dc-c4d2-40ad-95e2-3ea1235c996b}</destination>
+		</relationship>
+	</object>
+</objects>

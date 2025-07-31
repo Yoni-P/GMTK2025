@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{25e8e7ce-351c-4f6e-9cba-19f493708dfe}">
+		<property name="name">
+			<value>scream</value>
+		</property>
+		<relationship name="folder">
+			<destination>{8f2f6e3e-a09c-4a48-9c23-1b33254a1022}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e1a30df7-c174-41b9-85e2-84a64fb1f29e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e1a30df7-c174-41b9-85e2-84a64fb1f29e}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
