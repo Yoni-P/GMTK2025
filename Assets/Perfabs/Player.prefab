@@ -264,5 +264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earth: {fileID: 0}
-  maxSpeed: 5
-  acceleration: 10
+  maxSpeed: 75
+  acceleration: 50
+  rotationSpeed: 720
