@@ -52,4 +52,22 @@ public class PlayerMove : MonoBehaviour
                 rotationSpeed * Time.fixedDeltaTime);
         }
     }
+
+    private void OnCollisionStay(Collision other)
+    {
+        // Handle collision with other objects
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Collided with an obstacle: " + other.gameObject.name);
+            // Check if movement is toward the obstacle
+            Vector3 directionToObstacle = other.transform.position - transform.position;
+            var dir = new Vector2(directionToObstacle.x, directionToObstacle.z);
+            if (Vector2.Dot(moveInput, dir) > 0)
+            {
+                // If moving towards the obstacle, stop movement
+                currentSpeed = 0f;
+                Debug.Log("Stopping movement due to collision with: " + other.gameObject.name);
+            }
+        }
+    }
 }
