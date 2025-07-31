@@ -133,7 +133,7 @@
 	</object>
 	<object class="SingleSound" id="{fa67eb1b-0cc8-4011-ac13-975db1e357af}">
 		<property name="start">
-			<value>1.4000000000000001</value>
+			<value>1.25</value>
 		</property>
 		<property name="length">
 			<value>1.2000000000000002</value>
@@ -164,7 +164,7 @@
 			<value>1.2000000000000002</value>
 		</property>
 		<property name="length">
-			<value>1.4000000000000004</value>
+			<value>1.25</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{b27ecf35-0115-4d6e-91a9-afd0efec1052}</destination>
@@ -228,13 +228,13 @@
 	<object class="MixerBusFader" id="{05870806-a454-4b31-a25a-a984a717daf5}" />
 	<object class="AutomationPoint" id="{4fc0397a-21ee-4008-8791-b62c6740cb70}">
 		<property name="position">
-			<value>1.4000000000000001</value>
+			<value>1.25</value>
 		</property>
 		<property name="value">
 			<value>1</value>
 		</property>
 		<property name="curveShape">
-			<value>0.25471893</value>
+			<value>0.126200572</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{58222616-8c92-4f2d-922e-4012deef26a8}">
@@ -247,13 +247,13 @@
 	</object>
 	<object class="AutomationPoint" id="{232f5b31-31cd-455d-ba53-3eae0e1b4d19}">
 		<property name="position">
-			<value>1.4000000000000001</value>
+			<value>1.25</value>
 		</property>
 		<property name="value">
 			<value>0</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.2547189</value>
+			<value>-0.79814887</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{af067550-16ac-474f-910c-9112d4a3e3a6}">
