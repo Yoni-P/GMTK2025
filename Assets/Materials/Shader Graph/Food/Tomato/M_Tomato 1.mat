@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Toaster 2
+  m_Name: M_Tomato 1
   m_Shader: {fileID: -6465566751694194690, guid: 57658bb6af3b30947810f60f08e73035, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -45,10 +45,10 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Shades: 0.33
-    - _max: 0.96
-    - _min: 0.34
+    - _max: 0.52
+    - _min: 0.47
     m_Colors:
-    - _Color: {r: 0.16114861, g: 0.17066348, b: 0.17610055, a: 0}
+    - _Color: {r: 0.49685526, g: 0.12052618, b: 0.07968426, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7790278661160130728
