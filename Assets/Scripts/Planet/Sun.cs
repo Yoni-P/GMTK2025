@@ -7,6 +7,11 @@ public class Sun : RotatingPlanet
 
     protected new void Update()
     {
+        if (screamEmitter == null || !screamEmitter.IsPlaying())
+        {
+            return;
+        }
+        
         screamEmitter.EventInstance.getParameterByName("scream", out var screamParameter);
         var newScreamValue = Mathf.MoveTowards(screamParameter, 1f, Time.deltaTime * 0.3f);
         newScreamValue = Mathf.Min(newScreamValue, GetMaxScreamValue(GetProgress()));
@@ -28,8 +33,9 @@ public class Sun : RotatingPlanet
     public override void StartRotation()
     {
         base.StartRotation();
-        screamEmitter.EventInstance.setParameterByName("scream", 0f);
+        
         screamEmitter.Play();
+        screamEmitter.EventInstance.setParameterByName("scream", 0f);
     }
     
     public override void RestartRotation()
