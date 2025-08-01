@@ -5,8 +5,10 @@ public class Sun : RotatingPlanet
 {
     [SerializeField] private StudioEventEmitter screamEmitter;
 
-    protected new void Update()
+    protected override void Update()
     {
+        base.Update();
+        
         if (screamEmitter == null || !screamEmitter.IsPlaying())
         {
             return;

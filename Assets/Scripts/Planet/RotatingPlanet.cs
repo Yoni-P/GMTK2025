@@ -39,7 +39,7 @@ public class RotatingPlanet : MonoBehaviour
         }
     }
     
-    protected void Update()
+    protected virtual void Update()
     {
         if (earth != null)
         {

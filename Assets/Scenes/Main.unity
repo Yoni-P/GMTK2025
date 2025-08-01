@@ -752,17 +752,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07e4998937b495040abe1101b0b2f625, type: 3}
---- !u!114 &4952146449423209079 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 411585676273844838, guid: 07e4998937b495040abe1101b0b2f625, type: 3}
-  m_PrefabInstance: {fileID: 4952146449423209078}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20e8e35a8177d0c47b169c405c88c3d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5419515247400493524 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 714983864659389669, guid: 7d439ac712640b848a1972bc79d04d2d, type: 3}
@@ -800,15 +789,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4752232532173246776, guid: 86509eeaeeaaa704bbd39a3015607b10, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.400003
+      value: 12.163288
       objectReference: {fileID: 0}
     - target: {fileID: 4752232532173246776, guid: 86509eeaeeaaa704bbd39a3015607b10, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.4000006
+      value: -13.111081
       objectReference: {fileID: 0}
     - target: {fileID: 4752232532173246776, guid: 86509eeaeeaaa704bbd39a3015607b10, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.1
+      value: 0.13821922
       objectReference: {fileID: 0}
     - target: {fileID: 4752232532173246776, guid: 86509eeaeeaaa704bbd39a3015607b10, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1010,12 +999,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5256098847469876081, guid: 5d549047e57eb974983d8b821df9071f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7423450408096259484, guid: 5d549047e57eb974983d8b821df9071f, type: 3}
       propertyPath: earth
       value: 
-      objectReference: {fileID: 4952146449423209079}
+      objectReference: {fileID: 484744874}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
