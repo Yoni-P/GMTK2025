@@ -1708,6 +1708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8978260776759898317}
   - component: {fileID: 6078150670108817907}
+  - component: {fileID: 8850057677824416040}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
@@ -1751,6 +1752,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e8e35a8177d0c47b169c405c88c3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earthCollider: {fileID: 0}
+--- !u!114 &8850057677824416040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5439469569447402307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80580d99e9a4cef4f8d337d69e725e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsToSpawn:
+  - {fileID: 1763123993359428664, guid: 2fad5251ebf306546b2d35cd06aff34b, type: 3}
+  - {fileID: 5997239536611466763, guid: 4f0645f50a3e1614faf975527b48459c, type: 3}
+  - {fileID: 4516908649682454960, guid: bc0871654b799ab4c9aae7f0a8e9730e, type: 3}
+  - {fileID: 5605879020304424784, guid: 501f7bc6ede57244299a6040dbf3dae6, type: 3}
+  - {fileID: 6516413696556156933, guid: bd4f759e8e747cf48b7fc0271ef90a7d, type: 3}
+  - {fileID: 6543395617874020371, guid: 5128b3ac0c1efa0448980ab0626bbb2a, type: 3}
+  - {fileID: 3798220034341329098, guid: fbca872dd74c41444abbae466a3ff75e, type: 3}
+  spawnInterval: 5
+  earth: {fileID: 6078150670108817907}
 --- !u!1 &6000514006174993223
 GameObject:
   m_ObjectHideFlags: 0
