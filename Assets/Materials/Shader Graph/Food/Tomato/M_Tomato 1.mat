@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Shuriken
+  m_Name: M_Tomato 1
   m_Shader: {fileID: -6465566751694194690, guid: 57658bb6af3b30947810f60f08e73035, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -44,11 +44,11 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Shades: 0.45
-    - _max: 0.68
-    - _min: 0.35
+    - _Shades: 0.33
+    - _max: 0.52
+    - _min: 0.47
     m_Colors:
-    - _Color: {r: 0.5031446, g: 0.46367472, b: 0.44143817, a: 0}
+    - _Color: {r: 0.49685526, g: 0.12052618, b: 0.07968426, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7790278661160130728
