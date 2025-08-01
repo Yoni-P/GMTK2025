@@ -48,7 +48,7 @@ Material:
     - _max: 0.52
     - _min: 0.47
     m_Colors:
-    - _Color: {r: 0.4024129, g: 0.5471698, b: 0.34929392, a: 0}
+    - _Color: {r: 0.35435206, g: 0.4811321, b: 0.3063813, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &7790278661160130728
