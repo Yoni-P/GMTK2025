@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sun: {fileID: 0}
   moon: {fileID: 0}
+  skyMaterial: {fileID: 2100000, guid: 5f68985d0c001314b8466dff280d9051, type: 2}
