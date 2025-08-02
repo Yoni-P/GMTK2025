@@ -17,7 +17,8 @@ public class PlayerMove : MonoBehaviour
     
     private CapsuleCollider _capsuleCollider;
     private Collider[] colliders = new Collider[1];
-    
+    public bool IsRunning => moveInput.magnitude > 0.1f;
+
     public void OnMove (InputValue v)
     {
         moveInput = v.Get<Vector2>();
@@ -97,7 +98,7 @@ public class PlayerMove : MonoBehaviour
         if (moveInput != Vector2.zero)
         {
             float angle = Mathf.Atan2(-moveInput.y, moveInput.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, angle - 90, 0), 
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, angle - 270, 0), 
                 rotationSpeed * Time.fixedDeltaTime);
         }
     }

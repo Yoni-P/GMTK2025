@@ -70,6 +70,7 @@ public class PlayerThrow : MonoBehaviour
             {
                 // Apply the force to the item
                 itemRigidbody.AddForce(new Vector3(force.x, force.y, 0), ForceMode.Impulse);
+                OnThrow?.Invoke(); // Invoke the OnThrow event if there are subscribers
                 Debug.Log("Item thrown with force: " + force);
             }
             else
@@ -83,4 +84,6 @@ public class PlayerThrow : MonoBehaviour
         }
         
     }
+
+    public event Action OnThrow;
 }

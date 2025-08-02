@@ -5,6 +5,17 @@ public class Sun : RotatingPlanet
 {
     [SerializeField] private StudioEventEmitter screamEmitter;
 
+    public bool IsScreaming()
+    {
+        if (screamEmitter == null)
+        {
+            return false; // If the scream emitter is not assigned, return false
+        }
+        
+        screamEmitter.EventInstance.getParameterByName("scream", out var screamParameter);
+        return screamParameter > 0.5f; // Check if the scream parameter is greater than 0
+    }
+
     protected override void Update()
     {
         base.Update();

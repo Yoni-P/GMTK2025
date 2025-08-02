@@ -9,6 +9,8 @@ public class PlayerPickup : MonoBehaviour
     private GameObject _currentItem;
     
     private HashSet<GameObject> _timeOutItems = new HashSet<GameObject>(); // To track items that have been picked up and need to be removed after a timeout
+    
+    public bool IsHoldingItem => _currentItem != null; // Property to check if the player is currently holding an item
 
     private void OnTriggerEnter(Collider other)
     {
