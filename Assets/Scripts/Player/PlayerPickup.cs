@@ -19,7 +19,7 @@ public class PlayerPickup : MonoBehaviour
         if (other.CompareTag("Item") && _timeOutItems.Contains(other.gameObject) == false)
         {
             _currentItem = other.gameObject;
-            _timeOutItems.Add(_currentItem); // Add the item to the timeout set
+            
             Debug.Log("Picked up item: " + _currentItem.name);
             PickupItem();
         }
@@ -32,13 +32,14 @@ public class PlayerPickup : MonoBehaviour
             Debug.LogWarning("No item to pick up.");
             return;
         }
-
+        _timeOutItems.Add(_currentItem); // Add the item to the timeout set
         // Disable the item's gravity and collider
         var rb = _currentItem.GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = true; // Disable physics interactions
             rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            rb.excludeLayers = LayerMask.GetMask("Player"); // Exclude the item from physics interactions with default layer
         }
 
         var collider = _currentItem.GetComponent<Collider>();
@@ -52,6 +53,8 @@ public class PlayerPickup : MonoBehaviour
         {
             itemGravity.IsHeld = true; // Set the item as held
         }
+        
+        // _currentItem.layer = LayerMask.NameToLayer("HeldItem"); // Change the layer to "HeldItem" to avoid collisions with other items
 
         // Move the item to the pickup point
         _currentItem.transform.position = pickupPoint.position;
@@ -103,6 +106,13 @@ public class PlayerPickup : MonoBehaviour
         
         if (_timeOutItems.Contains(item))
         {
+            var rb = item.GetComponent<Rigidbody>();
+            
+            if (rb != null)
+            {
+                rb.excludeLayers = 0; // Reset the layer exclusion
+            }
+            
             _timeOutItems.Remove(item); // Remove the item from the timeout set
         }
     }
