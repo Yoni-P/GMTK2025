@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 8399823817594715237}
   - component: {fileID: 4327447431927918615}
   - component: {fileID: 1229656326077215162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3415002668941141191}
   - component: {fileID: 5764007169968881057}
   - component: {fileID: 7139837374104245690}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Glasses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 5276268294930393791}
   - component: {fileID: 336257525158444315}
   - component: {fileID: 4434240959886934567}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}

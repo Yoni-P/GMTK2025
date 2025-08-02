@@ -626,10 +626,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8035901761630629320, guid: 0025a473fab7bbd4eb144234305103de, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -658,17 +654,9 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 5419515247400493524}
-    - target: {fileID: 3440539788377232952, guid: 86509eeaeeaaa704bbd39a3015607b10, type: 3}
-      propertyPath: m_MaxSpeed
-      value: 0.48175612
-      objectReference: {fileID: 0}
     - target: {fileID: 4660945941583290560, guid: 86509eeaeeaaa704bbd39a3015607b10, type: 3}
       propertyPath: m_Name
       value: Moon
-      objectReference: {fileID: 0}
-    - target: {fileID: 4660945941583290560, guid: 86509eeaeeaaa704bbd39a3015607b10, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4752232532173246776, guid: 86509eeaeeaaa704bbd39a3015607b10, type: 3}
       propertyPath: m_LocalPosition.x
@@ -727,62 +715,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 587870484282192417, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1265541627051361729, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2141065368965243733, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_TagString
-      value: Earth
-      objectReference: {fileID: 0}
-    - target: {fileID: 2483475838663929676, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2868295566602797991, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4235753678479692404, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5197186229082838713, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5439469569447402307, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
       propertyPath: m_Name
       value: Earth
       objectReference: {fileID: 0}
-    - target: {fileID: 5762322959610009301, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Center.x
-      value: 0.00000002980232
-      objectReference: {fileID: 0}
-    - target: {fileID: 5762322959610009301, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Center.z
-      value: -0.000000014901161
-      objectReference: {fileID: 0}
-    - target: {fileID: 6343381612220124877, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8658792609504151720, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8805482576928056844, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8939948408436164403, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 000de93dd68b18947a7d9db32254a445, type: 2}
     - target: {fileID: 8978260776759898317, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -880,17 +816,9 @@ PrefabInstance:
       propertyPath: m_Target
       value: 
       objectReference: {fileID: 5419515247400493524}
-    - target: {fileID: 1319384132797223229, guid: 5d549047e57eb974983d8b821df9071f, type: 3}
-      propertyPath: m_MaxSpeed
-      value: 0.21735911
-      objectReference: {fileID: 0}
     - target: {fileID: 5256098847469876081, guid: 5d549047e57eb974983d8b821df9071f, type: 3}
       propertyPath: m_Name
       value: Sun
-      objectReference: {fileID: 0}
-    - target: {fileID: 5256098847469876081, guid: 5d549047e57eb974983d8b821df9071f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7423450408096259484, guid: 5d549047e57eb974983d8b821df9071f, type: 3}
       propertyPath: earth

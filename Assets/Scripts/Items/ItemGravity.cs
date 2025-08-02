@@ -6,6 +6,18 @@ public class ItemGravity : MonoBehaviour
     [SerializeField] private float gravityStrength = 9.81f; // Strength of the gravity effect
     [SerializeField] private Earth earth; // Reference to the Earth object
     [SerializeField] private Rigidbody rb;
+    
+    [SerializeField] private Collider[] colliders; // Colliders to disable when the item is held
+
+    private Animator _animator;
+
+    public void OnThrow()
+    {
+        if (_animator != null)
+        {
+            _animator.SetBool("Thrown", true);
+        }
+    }
 
 
     public bool IsHeld = false;
@@ -23,6 +35,13 @@ public class ItemGravity : MonoBehaviour
         if (rb == null)
         {
             rb = GetComponent<Rigidbody>();
+        }
+
+        colliders = GetComponentsInChildren<Collider>();
+        
+        if (_animator == null)
+        {
+            _animator = GetComponentInChildren<Animator>();
         }
     }
 
@@ -51,6 +70,42 @@ public class ItemGravity : MonoBehaviour
             Debug.Log("Item collided with Earth: " + gameObject.name);
             rb.constraints = RigidbodyConstraints.None;
             transform.SetParent(earth.transform); // Attach the item to the Earth when it collides
+            if (_animator != null)
+            {
+                _animator.SetBool("Thrown", false); // Reset the thrown state
+            }
+        }
+    }
+    
+    public void DisableCollisionsWithLayer(int layer)
+    {
+        if (colliders == null || colliders.Length == 0)
+        {
+            colliders = GetComponentsInChildren<Collider>();
+        }
+
+        foreach (var collider in colliders)
+        {
+            if (collider != null)
+            {
+                collider.excludeLayers = layer;
+            }
+        }
+    }
+    
+    public void ResetCollisions()
+    {
+        if (colliders == null || colliders.Length == 0)
+        {
+            colliders = GetComponentsInChildren<Collider>();
+        }
+
+        foreach (var collider in colliders)
+        {
+            if (collider != null)
+            {
+                collider.excludeLayers = 0; // Reset to default layer
+            }
         }
     }
 }

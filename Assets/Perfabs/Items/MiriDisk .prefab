@@ -104,6 +104,7 @@ MonoBehaviour:
   gravityStrength: 9.81
   earth: {fileID: 0}
   rb: {fileID: -4078171597917710682}
+  colliders: []
   IsHeld: 0
 --- !u!54 &-4078171597917710682
 Rigidbody:

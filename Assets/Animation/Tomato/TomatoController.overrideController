@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TomatoController
+  m_Controller: {fileID: 9100000, guid: 43c79b18d20966643b1d09d5823f05d1, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e5d343cd30113114286b6801bd896406, type: 2}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: 6f819b6fd22d9fe4780b141147335870, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 66a29d1189d0a554980d54b3b174037c, type: 2}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: 8addda27dde82f147b4553f00911e721, type: 3}

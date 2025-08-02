@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 1599836908782971244}
   - component: {fileID: 503000308675799231}
   - component: {fileID: 3462272855423305446}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.002
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 718779647774749433}
   m_Layer: 0
   m_Name: Planet
-  m_TagString: Untagged
+  m_TagString: Earth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 8897694585379489913}
   - component: {fileID: 3157875606133537299}
   - component: {fileID: 1261684311934969518}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.001
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 6596927483748541301}
   - component: {fileID: 2993704793144045286}
   - component: {fileID: 1133234829912987433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1234,7 +1234,7 @@ GameObject:
   - component: {fileID: 3114696540415672993}
   - component: {fileID: 6860881484983533881}
   - component: {fileID: 633711278178298791}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Icosphere.023
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1601,7 +1601,7 @@ GameObject:
   - component: {fileID: 1731663074430790338}
   - component: {fileID: 5080279434912951923}
   - component: {fileID: 6351090169988689876}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Icosphere.024
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1766,12 +1766,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsToSpawn:
-  - {fileID: 1763123993359428664, guid: 2fad5251ebf306546b2d35cd06aff34b, type: 3}
-  - {fileID: 5997239536611466763, guid: 4f0645f50a3e1614faf975527b48459c, type: 3}
+  - {fileID: 1661557822653913227, guid: 11e44327d7b17d144ac529ab58275612, type: 3}
+  - {fileID: 3879719635721303366, guid: 5e61530b7f95ebf42880815df4af35bd, type: 3}
   - {fileID: 4516908649682454960, guid: bc0871654b799ab4c9aae7f0a8e9730e, type: 3}
-  - {fileID: 5605879020304424784, guid: 501f7bc6ede57244299a6040dbf3dae6, type: 3}
-  - {fileID: 6516413696556156933, guid: bd4f759e8e747cf48b7fc0271ef90a7d, type: 3}
-  - {fileID: 6543395617874020371, guid: 5128b3ac0c1efa0448980ab0626bbb2a, type: 3}
+  - {fileID: 1211627395869399861, guid: cfd244f01f056ec46a07945b3dbbf82d, type: 3}
+  - {fileID: 1425669808221845032, guid: e5d56256b1b7d814ba74ccc7096e49db, type: 3}
+  - {fileID: 6208962054679351252, guid: 7828a2533b5781948803f42c2e77e943, type: 3}
+  - {fileID: 7556070940003853120, guid: 7d787070f045b4d428401ff208888365, type: 3}
   - {fileID: 3798220034341329098, guid: fbca872dd74c41444abbae466a3ff75e, type: 3}
   spawnInterval: 5
   earth: {fileID: 6078150670108817907}
@@ -1874,7 +1875,7 @@ GameObject:
   - component: {fileID: 171339844201584713}
   - component: {fileID: 3894871440103666421}
   - component: {fileID: 7800947023275915404}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder.003
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2418,7 +2419,7 @@ GameObject:
   - component: {fileID: 3214329004546591360}
   - component: {fileID: 5643204334794663856}
   - component: {fileID: 6478759993701371086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Icosphere.018
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2527,7 +2528,7 @@ GameObject:
   - component: {fileID: 4285406510548779937}
   - component: {fileID: 3974148392830467354}
   - component: {fileID: 1265541627051361729}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Icosphere.022
   m_TagString: Obstacle
   m_Icon: {fileID: 0}

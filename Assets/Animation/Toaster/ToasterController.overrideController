@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ToasterController
+  m_Controller: {fileID: 9100000, guid: 43c79b18d20966643b1d09d5823f05d1, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e5d343cd30113114286b6801bd896406, type: 2}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: dd05d4d407a78c84eba5efd52eb6c094, type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 66a29d1189d0a554980d54b3b174037c, type: 2}
+    m_OverrideClip: {fileID: 1827226128182048838, guid: fde89127e5c9f0e4eaff13459b22d154, type: 3}
