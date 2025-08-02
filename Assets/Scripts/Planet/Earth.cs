@@ -52,5 +52,7 @@ public class Earth : MonoBehaviour
         // Calculate a random position on the Earth's surface
         
         item.transform.position = spawnPosition;
+        
+        item.transform.parent = transform; // Set the Earth as the parent of the item
     }
 }

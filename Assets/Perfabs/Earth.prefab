@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 3956926547067270626}
   - component: {fileID: 8206309753876210844}
   - component: {fileID: 8939948408436164403}
-  - component: {fileID: 5762322959610009301}
+  - component: {fileID: 718779647774749433}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -458,7 +458,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5762322959610009301
+--- !u!135 &718779647774749433
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -475,10 +475,10 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.15839379
-  m_Center: {x: 0.000000029802322, y: -0.000000022351738, z: 0}
+  m_Center: {x: 0.00000002980232, y: -0.000000022351738, z: -0.000000014901161}
 --- !u!1 &2341566992222219569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,7 +1752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e8e35a8177d0c47b169c405c88c3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  earthCollider: {fileID: 0}
+  earthCollider: {fileID: 718779647774749433}
 --- !u!114 &8850057677824416040
 MonoBehaviour:
   m_ObjectHideFlags: 0

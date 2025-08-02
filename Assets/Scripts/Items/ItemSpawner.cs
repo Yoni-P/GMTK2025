@@ -8,6 +8,8 @@ public class ItemSpawner : MonoBehaviour
     
     [SerializeField] private Earth earth; // Reference to the Earth object
     
+    public GameObject forcedItem; // Optional forced item to spawn
+    
     private float spawnTimer;
     private void Start()
     {
@@ -36,10 +38,18 @@ public class ItemSpawner : MonoBehaviour
 
     private void SpawnItem()
     {
-        var itemIndex = Random.Range(0, itemsToSpawn.Length);
+        GameObject item = null;
+        if (forcedItem != null)
+        {
+            // If a forced item is set, spawn it instead of a random item
+            item = Instantiate(forcedItem, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            var itemIndex = Random.Range(0, itemsToSpawn.Length);
         
-        var item = Instantiate(itemsToSpawn[itemIndex], transform.position, Quaternion.identity);
-        
-        earth.PlaceItemOnEarth(item); // Place the item on the Earth
+            item = Instantiate(itemsToSpawn[itemIndex], transform.position, Quaternion.identity);
+        }
+        earth.PlaceItemOnEarth(item);
     }
 }

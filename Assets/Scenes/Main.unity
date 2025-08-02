@@ -812,8 +812,12 @@ PrefabInstance:
       value: Earth
       objectReference: {fileID: 0}
     - target: {fileID: 5762322959610009301, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_Center.x
+      value: 0.00000002980232
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762322959610009301, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
+      propertyPath: m_Center.z
+      value: -0.000000014901161
       objectReference: {fileID: 0}
     - target: {fileID: 6343381612220124877, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
       propertyPath: m_Layer
@@ -827,6 +831,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8850057677824416040, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850057677824416040, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
+      propertyPath: forcedItem
+      value: 
+      objectReference: {fileID: 1763123993359428664, guid: 2fad5251ebf306546b2d35cd06aff34b, type: 3}
     - target: {fileID: 8939948408436164403, guid: 9d87b1d6d9851134784cda5269c69900, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

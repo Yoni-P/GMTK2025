@@ -528,8 +528,8 @@ GameObject:
   - component: {fileID: 5454056822529801075}
   - component: {fileID: 2832579627381774345}
   - component: {fileID: 37767821467656478}
-  - component: {fileID: 711742569143525770}
   - component: {fileID: -7551004891514580998}
+  - component: {fileID: 969561336311006883}
   m_Layer: 0
   m_Name: Hamburger
   m_TagString: Untagged
@@ -626,30 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityStrength: 9.81
   earth: {fileID: 0}
-  rb: {fileID: -4078171597917710682, guid: bc0871654b799ab4c9aae7f0a8e9730e, type: 3}
---- !u!136 &711742569143525770
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5997239536611466763}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.011875352
-  m_Height: 0.0237507
-  m_Direction: 1
-  m_Center: {x: 0.0000024894252, y: 9.313224e-10, z: 0.004298948}
+  rb: {fileID: -7551004891514580998}
 --- !u!54 &-7551004891514580998
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -676,7 +653,30 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!136 &969561336311006883
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997239536611466763}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.011875352
+  m_Height: 0
+  m_Direction: 2
+  m_Center: {x: 0.0000024894252, y: 9.313224e-10, z: -0.001}
 --- !u!1 &8537879092119515576
 GameObject:
   m_ObjectHideFlags: 0
