@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ItemGravity : MonoBehaviour
@@ -6,6 +7,8 @@ public class ItemGravity : MonoBehaviour
     [SerializeField] private Earth earth; // Reference to the Earth object
     [SerializeField] private Rigidbody rb;
 
+
+    public bool IsHeld = false;
     private void Start()
     {
         if (earth == null)
@@ -15,6 +18,11 @@ public class ItemGravity : MonoBehaviour
             {
                 Debug.LogError("Earth object not found in the scene.");
             }
+        }
+        
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody>();
         }
     }
 
@@ -28,20 +36,21 @@ public class ItemGravity : MonoBehaviour
 
     private void ApplyGravity()
     {
-        if (rb == null)
-        {
-            rb = GetComponent<Rigidbody>();
-            if (rb == null)
-            {
-                Debug.LogError("Rigidbody not found on ItemGravity object.");
-                return;
-            }
-        }
 
         // Calculate the direction towards the center of the Earth
         Vector3 directionToEarth = (earth.transform.position - transform.position).normalized;
 
         // Apply gravity force towards the Earth
         rb.AddForce(directionToEarth * gravityStrength, ForceMode.Acceleration);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Earth") && !IsHeld)
+        {
+            Debug.Log("Item collided with Earth: " + gameObject.name);
+            rb.constraints = RigidbodyConstraints.None;
+            transform.SetParent(earth.transform); // Attach the item to the Earth when it collides
+        }
     }
 }

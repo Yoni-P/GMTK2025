@@ -1775,6 +1775,7 @@ MonoBehaviour:
   - {fileID: 3798220034341329098, guid: fbca872dd74c41444abbae466a3ff75e, type: 3}
   spawnInterval: 5
   earth: {fileID: 6078150670108817907}
+  forcedItem: {fileID: 0}
 --- !u!1 &6000514006174993223
 GameObject:
   m_ObjectHideFlags: 0
