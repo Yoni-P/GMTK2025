@@ -4875,6 +4875,7 @@ GameObject:
   - component: {fileID: 2143372848221592085}
   - component: {fileID: 5557833945061274020}
   - component: {fileID: 6122920041189008494}
+  - component: {fileID: 7452968741525896808}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -5091,6 +5092,29 @@ MonoBehaviour:
   playerThrow: {fileID: 8516290930366752787}
   playerPickup: {fileID: 7838276972570529132}
   sun: {fileID: 0}
+--- !u!136 &7452968741525896808
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456372132123516934}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.04
+  m_Height: 0.56
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1474236048882182439
 GameObject:
   m_ObjectHideFlags: 0
@@ -14429,7 +14453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPickup: {fileID: 7838276972570529132}
-  throwForce: 30
+  throwForce: 45
 --- !u!1 &4360809572117784328
 GameObject:
   m_ObjectHideFlags: 0
@@ -30157,7 +30181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed41cdf8b66d1a04da49acef5d8c76d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPoint: {fileID: 0}
+  pickupPoint: {fileID: 8803609055775734553}
 --- !u!136 &8396179706987175700
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -30177,7 +30201,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.94
   m_Height: 3.59
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

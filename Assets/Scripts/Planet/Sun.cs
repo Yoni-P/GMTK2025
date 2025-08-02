@@ -1,9 +1,13 @@
+using System;
+using System.Collections;
 using FMODUnity;
 using UnityEngine;
 
 public class Sun : RotatingPlanet
 {
     [SerializeField] private StudioEventEmitter screamEmitter;
+    [SerializeField] private Animator animator;
+    private bool _iseating = false;
 
     public bool IsScreaming()
     {
@@ -20,7 +24,7 @@ public class Sun : RotatingPlanet
     {
         base.Update();
         
-        if (screamEmitter == null || !screamEmitter.IsPlaying())
+        if (screamEmitter == null || !screamEmitter.IsPlaying() || _iseating)
         {
             return;
         }
@@ -55,5 +59,33 @@ public class Sun : RotatingPlanet
     {
         base.RestartRotation();
         screamEmitter.Stop();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.attachedRigidbody.gameObject.CompareTag("Item"))
+        {
+            other.attachedRigidbody.isKinematic = true; // Prevent physics interactions while eating
+            other.attachedRigidbody.transform.SetParent(transform); // Set the sun as the parent to keep the item in place
+            StartCoroutine(EatItem(other.gameObject));
+        }
+    }
+
+    private IEnumerator EatItem(GameObject otherGameObject)
+    {
+        animator.SetTrigger("Eat");
+        _iseating = true;
+        float stopScreamTime = 0.5f; // Time to stop the scream before eating
+        float t = 0f;
+        screamEmitter.EventInstance.getParameterByName("scream", out var screamParameter);
+        while (t < stopScreamTime)
+        {
+            t += Time.deltaTime;
+            screamEmitter.EventInstance.setParameterByName("scream", Mathf.Lerp(screamParameter, 0f, t / stopScreamTime));
+            yield return null;
+        }
+        Destroy(otherGameObject);
+        yield return new WaitUntil(() => !animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
+        _iseating = false;
     }
 }
