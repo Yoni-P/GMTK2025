@@ -3206,6 +3206,7 @@ MonoBehaviour:
   cinemachineNoise: {fileID: 0}
   rumbleEmitter: {fileID: 8411247155021838206}
   explosionEffect: {fileID: 0}
+  playerRb: {fileID: 0}
 --- !u!114 &1625931418712381082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3252,7 +3253,7 @@ MonoBehaviour:
     Path: event:/rumble
   Event: 
   EventPlayTrigger: 0
-  EventStopTrigger: 0
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0

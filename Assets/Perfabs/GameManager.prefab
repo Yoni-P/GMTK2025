@@ -73,7 +73,7 @@ MonoBehaviour:
     Path: event:/music
   Event: 
   EventPlayTrigger: 1
-  EventStopTrigger: 0
+  EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -96,3 +96,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   earth: {fileID: 0}
   dayNightManager: {fileID: 7229243426968846557}
+  sun: {fileID: 0}
+  gameOverPanel: {fileID: 0}
+  gameOverText: {fileID: 0}
