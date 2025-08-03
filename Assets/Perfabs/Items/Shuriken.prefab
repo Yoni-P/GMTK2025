@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 6495698815535962226}
   - component: {fileID: 7764808693172744365}
   - component: {fileID: 5012087769246994751}
+  - component: {fileID: -6416552541744597877}
   m_Layer: 0
   m_Name: Shuriken
   m_TagString: Item
@@ -225,7 +226,8 @@ MonoBehaviour:
   earth: {fileID: 0}
   rb: {fileID: 6495698815535962226}
   colliders: []
-  throwSoundEmitter: {fileID: 0}
+  throwSoundEmitter: {fileID: 5012087769246994751}
+  hitSoundEmitter: {fileID: -6416552541744597877}
   IsHeld: 0
 --- !u!114 &5012087769246994751
 MonoBehaviour:
@@ -249,6 +251,37 @@ MonoBehaviour:
     Path: event:/throw
   Event: 
   EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &-6416552541744597877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425669808221845032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -607746007
+      Data2: 1177203828
+      Data3: -1286316409
+      Data4: 1000075534
+    Path: event:/hit
+  Event: 
+  EventPlayTrigger: 7
   EventStopTrigger: 0
   AllowFadeout: 1
   TriggerOnce: 0

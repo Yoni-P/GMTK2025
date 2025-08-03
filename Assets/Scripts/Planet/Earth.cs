@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using FMODUnity;
 using Unity.Cinemachine;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,6 +12,8 @@ public class Earth : MonoBehaviour
     [SerializeField] private float maxHealth = 30f;
     
     [SerializeField] private CinemachineBasicMultiChannelPerlin cinemachineNoise;
+    
+    [SerializeField] private StudioEventEmitter rumbleEmitter;
     
     private float health;
     
@@ -88,6 +91,16 @@ public class Earth : MonoBehaviour
         {
             cinemachineNoise.AmplitudeGain = Mathf.Clamp(maxHealth - health, 0f, maxHealth);
             cinemachineNoise.FrequencyGain = Mathf.Clamp(maxHealth - health, 0f, maxHealth);
+        }
+        
+        if (rumbleEmitter != null)
+        {
+            if (!rumbleEmitter.IsPlaying())
+            {
+                rumbleEmitter.Play();
+            }
+
+            rumbleEmitter.EventInstance.setParameterByName("critical", Mathf.Clamp((maxHealth - health) / maxHealth, 0f, 1f));
         }
         
         if (health <= 0)

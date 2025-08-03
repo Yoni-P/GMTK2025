@@ -8,14 +8,11 @@ public class Sun : RotatingPlanet
 {
     private static readonly int Eat = Animator.StringToHash("Eat");
     [SerializeField] private StudioEventEmitter screamEmitter;
+    [SerializeField] private StudioEventEmitter eatEmitter;
     [SerializeField] private Animator animator;
 
     [SerializeField] private float damagePerSecond = 0.1f;
     [SerializeField] private float damageIncreasePerRotation = 0.01f; // Increase damage per rotation
-
-    [SerializeField] private CinemachineBasicMultiChannelPerlin cinemachineNoise;
-    [SerializeField] private float maxNoiseAmplitude = 30f;
-    [SerializeField] private float maxNoiseFrequency = 30f;
 
     private bool _iseating = false;
 
@@ -121,6 +118,7 @@ public class Sun : RotatingPlanet
             yield return null;
         }
         Destroy(otherGameObject);
+        eatEmitter.Play();
         yield return new WaitUntil(() => !animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"));
         _iseating = false;
     }

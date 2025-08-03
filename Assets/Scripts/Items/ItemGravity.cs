@@ -11,7 +11,10 @@ public class ItemGravity : MonoBehaviour
     [SerializeField] private Collider[] colliders; // Colliders to disable when the item is held
     
     [SerializeField] private StudioEventEmitter throwSoundEmitter; // Sound emitter for throwing sound
-
+    [SerializeField] private StudioEventEmitter hitSoundEmitter; // Sound emitter for hit sound
+    
+    private float hitSoundTimeout = 3f; // Time before the hit sound can be played again
+    private float hitSoundCooldown = 3f; // Cooldown time for hit sound
     private Animator _animator;
 
     public void OnThrow()
@@ -67,6 +70,10 @@ public class ItemGravity : MonoBehaviour
         {
             ApplyGravity();
         }
+        if (hitSoundTimeout > 0f)
+        {
+            hitSoundTimeout -= Time.deltaTime; // Decrease the timeout
+        }
     }
 
     private void ApplyGravity()
@@ -81,6 +88,11 @@ public class ItemGravity : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if (hitSoundTimeout <= 0f && hitSoundEmitter != null)
+        {
+            hitSoundEmitter.Play(); // Play the hit sound
+            hitSoundTimeout = hitSoundCooldown; // Reset the timeout
+        }
         if (other.gameObject.CompareTag("Earth") && !IsHeld)
         {
             Debug.Log("Item collided with Earth: " + gameObject.name);

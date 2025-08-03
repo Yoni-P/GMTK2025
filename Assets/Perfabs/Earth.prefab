@@ -3077,6 +3077,7 @@ GameObject:
   - component: {fileID: 8311552544374320398}
   - component: {fileID: 139313735320046508}
   - component: {fileID: 1625931418712381082}
+  - component: {fileID: 8411247155021838206}
   m_Layer: 0
   m_Name: Earth
   m_TagString: Earth
@@ -3201,6 +3202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earthCollider: {fileID: 8311552544374320398}
+  maxHealth: 30
+  cinemachineNoise: {fileID: 0}
+  rumbleEmitter: {fileID: 8411247155021838206}
 --- !u!114 &1625931418712381082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3225,6 +3229,37 @@ MonoBehaviour:
   spawnInterval: 5
   earth: {fileID: 139313735320046508}
   forcedItem: {fileID: 0}
+--- !u!114 &8411247155021838206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673061299622070621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2049050784
+      Data2: 1093005004
+      Data3: -282280312
+      Data4: 305552130
+    Path: event:/rumble
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5760268490999232410
 GameObject:
   m_ObjectHideFlags: 0

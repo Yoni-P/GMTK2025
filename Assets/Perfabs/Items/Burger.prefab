@@ -631,6 +631,7 @@ GameObject:
   - component: {fileID: 2265992993376326555}
   - component: {fileID: 6577820846851338712}
   - component: {fileID: -2786129440130744313}
+  - component: {fileID: 4861031676249170551}
   m_Layer: 0
   m_Name: Burger
   m_TagString: Item
@@ -697,7 +698,8 @@ MonoBehaviour:
   earth: {fileID: 0}
   rb: {fileID: 7890059252153134303}
   colliders: []
-  throwSoundEmitter: {fileID: 0}
+  throwSoundEmitter: {fileID: -2786129440130744313}
+  hitSoundEmitter: {fileID: 4861031676249170551}
   IsHeld: 0
 --- !u!136 &6577820846851338712
 CapsuleCollider:
@@ -744,6 +746,37 @@ MonoBehaviour:
     Path: event:/throw
   Event: 
   EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &4861031676249170551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3879719635721303366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -607746007
+      Data2: 1177203828
+      Data3: -1286316409
+      Data4: 1000075534
+    Path: event:/hit
+  Event: 
+  EventPlayTrigger: 7
   EventStopTrigger: 0
   AllowFadeout: 1
   TriggerOnce: 0

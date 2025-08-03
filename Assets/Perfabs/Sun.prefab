@@ -831,6 +831,7 @@ GameObject:
   - component: {fileID: 2532703240630291035}
   - component: {fileID: 4170142397177540016}
   - component: {fileID: 1947209857281075455}
+  - component: {fileID: 6215579306274462563}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -894,8 +895,12 @@ MonoBehaviour:
   earth: {fileID: 0}
   splineAnimator: {fileID: 6146274615460143113}
   lightSource: {fileID: 4297499292193773076}
+  cameraTransform: {fileID: 0}
   screamEmitter: {fileID: 4170142397177540016}
+  eatEmitter: {fileID: 6215579306274462563}
   animator: {fileID: 8609176512730515682}
+  damagePerSecond: 0.1
+  damageIncreasePerRotation: 0.01
 --- !u!114 &4170142397177540016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -952,6 +957,37 @@ CapsuleCollider:
   m_Height: 1.057111
   m_Direction: 0
   m_Center: {x: 0.01957565, y: -0.27949622, z: 0.19923252}
+--- !u!114 &6215579306274462563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8643303109569072754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -190923316
+      Data2: 1169505151
+      Data3: 379523258
+      Data4: 623905839
+    Path: event:/Sun_eat
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &8860928885225174985
 GameObject:
   m_ObjectHideFlags: 0

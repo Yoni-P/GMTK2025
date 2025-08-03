@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -4078171597917710682}
   - component: {fileID: 8897467492120875138}
   - component: {fileID: 1244923806855919688}
+  - component: {fileID: 5126901847441993022}
   m_Layer: 0
   m_Name: 'MiriDisk '
   m_TagString: Item
@@ -106,7 +107,8 @@ MonoBehaviour:
   earth: {fileID: 0}
   rb: {fileID: -4078171597917710682}
   colliders: []
-  throwSoundEmitter: {fileID: 0}
+  throwSoundEmitter: {fileID: 1244923806855919688}
+  hitSoundEmitter: {fileID: 5126901847441993022}
   IsHeld: 0
 --- !u!54 &-4078171597917710682
 Rigidbody:
@@ -178,6 +180,37 @@ MonoBehaviour:
     Path: event:/miri_throw
   Event: 
   EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &5126901847441993022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516908649682454960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -607746007
+      Data2: 1177203828
+      Data3: -1286316409
+      Data4: 1000075534
+    Path: event:/hit
+  Event: 
+  EventPlayTrigger: 7
   EventStopTrigger: 0
   AllowFadeout: 1
   TriggerOnce: 0
