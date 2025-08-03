@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using UnityEngine;
 
 public class ItemGravity : MonoBehaviour
@@ -8,6 +9,8 @@ public class ItemGravity : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     
     [SerializeField] private Collider[] colliders; // Colliders to disable when the item is held
+    
+    [SerializeField] private StudioEventEmitter throwSoundEmitter; // Sound emitter for throwing sound
 
     private Animator _animator;
 
@@ -16,6 +19,10 @@ public class ItemGravity : MonoBehaviour
         if (_animator != null)
         {
             _animator.SetBool("Thrown", true);
+        }
+        if (throwSoundEmitter != null)
+        {
+            throwSoundEmitter.Play(); // Play the throw sound
         }
     }
 
@@ -42,6 +49,15 @@ public class ItemGravity : MonoBehaviour
         if (_animator == null)
         {
             _animator = GetComponentInChildren<Animator>();
+        }
+        
+        if (throwSoundEmitter == null)
+        {
+            throwSoundEmitter = GetComponent<StudioEventEmitter>();
+            if (throwSoundEmitter == null)
+            {
+                Debug.LogError("Throw sound emitter not found on ItemGravity object.");
+            }
         }
     }
 
