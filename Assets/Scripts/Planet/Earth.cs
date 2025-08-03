@@ -36,17 +36,13 @@ public class Earth : MonoBehaviour
             // calculate the spawn position by moving the item slightly above the surface
             spawnPosition = randomPoint + normal * 0.1f; // Adjust the offset as needed
             
-            // check if there is a collider at that position
-            var itemCollider = item.GetComponent<Collider>();
-            if (itemCollider != null)
+            // Check if the position is valid
+            if (Physics.CheckSphere(spawnPosition, 0.2f, LayerMask.GetMask("Obstacle")))
             {
-                // Check if the position is valid
-                if (Physics.CheckSphere(spawnPosition, itemCollider.bounds.extents.magnitude, LayerMask.GetMask("Obstacle")))
-                {
-                    Debug.LogWarning("Cannot place item on Earth, position is blocked by an obstacle.");
-                    continue;
-                }
+                Debug.LogWarning("Cannot place item on Earth, position is blocked by an obstacle.");
+                continue;
             }
+            
             foundSpawnPosition = true;
         }
         // Calculate a random position on the Earth's surface
