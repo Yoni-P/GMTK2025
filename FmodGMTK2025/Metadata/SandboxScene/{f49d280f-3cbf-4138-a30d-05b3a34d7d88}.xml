@@ -13,6 +13,9 @@
 		<relationship name="timeline">
 			<destination>{9d66a2fc-9a70-487a-bcff-e22636d1e34c}</destination>
 		</relationship>
+		<relationship name="sandboxParameters">
+			<destination>{2cb05de3-fdb8-4efc-8152-d46dcbbf01d0}</destination>
+		</relationship>
 		<relationship name="listeners">
 			<destination>{09fdb326-d14c-483a-a9d9-330daef8688c}</destination>
 		</relationship>
@@ -24,10 +27,19 @@
 			<destination>{6a6a84c1-e3c7-423d-931c-2ad538837d11}</destination>
 			<destination>{37ae38e5-5091-4eaa-906f-a717f7d284b1}</destination>
 			<destination>{f918178f-a5a9-4793-8fd9-b2dcbd712f12}</destination>
+			<destination>{d9090d71-dd77-4a64-84d0-ddd7fc9c8339}</destination>
 		</relationship>
 	</object>
 	<object class="MarkerTrack" id="{a2f32e4e-5535-40ae-8efd-a464513e9d1c}" />
 	<object class="Timeline" id="{9d66a2fc-9a70-487a-bcff-e22636d1e34c}" />
+	<object class="SandboxParameter" id="{2cb05de3-fdb8-4efc-8152-d46dcbbf01d0}">
+		<property name="parameterValue">
+			<value>1</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{20107608-1be1-4762-9494-556dd320dc55}</destination>
+		</relationship>
+	</object>
 	<object class="SandboxListener" id="{09fdb326-d14c-483a-a9d9-330daef8688c}">
 		<property name="positionX">
 			<value>-3.375</value>
@@ -119,9 +131,23 @@
 			<destination>{301efa42-9bc1-44c2-b83b-f1d997dc7ee9}</destination>
 		</relationship>
 	</object>
+	<object class="SandboxEmitter" id="{d9090d71-dd77-4a64-84d0-ddd7fc9c8339}">
+		<property name="positionX">
+			<value>14.250001</value>
+		</property>
+		<property name="positionZ">
+			<value>7.35000038</value>
+		</property>
+		<property name="rotationY">
+			<value>-140.044312</value>
+		</property>
+		<relationship name="event">
+			<destination>{85ddf760-eecc-4125-88be-2cef025b3612}</destination>
+		</relationship>
+	</object>
 	<object class="SandboxParameter" id="{08aff8d4-5c21-44f7-8e9e-6cceaae73961}">
 		<property name="parameterValue">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{f3871968-c089-4f18-9845-e3a8692dc701}</destination>
@@ -129,7 +155,7 @@
 	</object>
 	<object class="SandboxParameter" id="{637a4a5e-b543-4b6a-b06b-fefc305a65fb}">
 		<property name="parameterValue">
-			<value>0.289999992</value>
+			<value>1</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{e1a30df7-c174-41b9-85e2-84a64fb1f29e}</destination>
