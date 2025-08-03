@@ -4876,6 +4876,7 @@ GameObject:
   - component: {fileID: 5557833945061274020}
   - component: {fileID: 6122920041189008494}
   - component: {fileID: 7452968741525896808}
+  - component: {fileID: 2273352350701564329}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -5092,6 +5093,7 @@ MonoBehaviour:
   playerThrow: {fileID: 8516290930366752787}
   playerPickup: {fileID: 7838276972570529132}
   sun: {fileID: 0}
+  footstepEmitter: {fileID: 2273352350701564329}
 --- !u!136 &7452968741525896808
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5115,6 +5117,37 @@ CapsuleCollider:
   m_Height: 0.56
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2273352350701564329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456372132123516934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 807336514
+      Data2: 1153604545
+      Data3: -638501960
+      Data4: -377561961
+    Path: event:/footstep
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1474236048882182439
 GameObject:
   m_ObjectHideFlags: 0

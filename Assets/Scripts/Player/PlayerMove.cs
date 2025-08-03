@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -9,7 +10,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private float acceleration = 10f;
     [SerializeField] private float rotationSpeed = 360f; // Degrees per second
-    
     private float currentSpeed = 0f;
     private Vector2 moveInput;
     

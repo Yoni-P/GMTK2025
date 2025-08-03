@@ -1,4 +1,5 @@
 using System;
+using FMODUnity;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
@@ -13,6 +14,8 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private PlayerThrow playerThrow;
     [SerializeField] private PlayerPickup playerPickup; // Reference to the PlayerPickup script
     [SerializeField] private Sun sun;
+    
+    [SerializeField] private StudioEventEmitter footstepEmitter;
     
     private void Start()
     {
@@ -52,6 +55,17 @@ public class PlayerAnimation : MonoBehaviour
         if (animator.GetBool(Running) != playerMove.IsRunning)
         {
             animator.SetBool(Running, playerMove.IsRunning);
+            if (playerMove.IsRunning && footstepEmitter != null)
+            {
+                if (!footstepEmitter.IsPlaying())
+                {
+                    footstepEmitter.Play();
+                }
+            }
+            else if (footstepEmitter != null)
+            {
+                footstepEmitter.Stop();
+            }
         }
         if (animator.GetBool(Screaming) != sun.IsScreaming())
         {
