@@ -1,11 +1,23 @@
 using System;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Earth : MonoBehaviour
 {
     [SerializeField] private SphereCollider earthCollider;
+
+    [SerializeField] private float maxHealth = 30f;
+    
+    [SerializeField] private CinemachineBasicMultiChannelPerlin cinemachineNoise;
+    
+    private float health;
+    
+    private void Start()
+    {
+        health = maxHealth;
+    }
     
     
     public void RotatePlanet(Vector2 rotationSpeed)
@@ -64,5 +76,25 @@ public class Earth : MonoBehaviour
         item.transform.parent = transform; // Set the Earth as the parent of the item
     }
 
+    
+    public void Damage(float damage)
+    {
+        health -= damage;
+        health = Mathf.Clamp(health, 0f, maxHealth); // Ensure health does not go below 0 or above maxHealth
+        Debug.Log($"Earth damaged. Current health: {health}");
+        
+        // Trigger camera shake effect
+        if (cinemachineNoise != null)
+        {
+            cinemachineNoise.AmplitudeGain = Mathf.Clamp(maxHealth - health, 0f, maxHealth);
+            cinemachineNoise.FrequencyGain = Mathf.Clamp(maxHealth - health, 0f, maxHealth);
+        }
+        
+        if (health <= 0)
+        {
+            Debug.Log("Earth has been destroyed!");
+            // Handle Earth destruction logic here
+        }
+    }
     
 }

@@ -9,6 +9,7 @@ public class RotatingPlanet : MonoBehaviour
     [SerializeField] protected Earth earth;
     [SerializeField] protected SplineAnimate splineAnimator;
     [SerializeField] private Light lightSource;
+    [SerializeField] private Transform cameraTransform;
 
     private float maxLightIntensity;
     private Sequence lightSequence;
@@ -49,7 +50,9 @@ public class RotatingPlanet : MonoBehaviour
 
     private void RotatePlanetToEarth()
     {
-        var cameraEarthAvg = (earth.transform.position + Camera.main.transform.position) / 2f;
+        var cameraEarthAvg = (1f / 5f) * earth.transform.position +
+                             (4f / 5f) * cameraTransform.position;
+        Debug.DrawLine(transform.position, cameraEarthAvg, Color.red);
         var lookDir = cameraEarthAvg - transform.position;
 
         transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using FMODUnity;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class Sun : RotatingPlanet
@@ -8,6 +9,14 @@ public class Sun : RotatingPlanet
     private static readonly int Eat = Animator.StringToHash("Eat");
     [SerializeField] private StudioEventEmitter screamEmitter;
     [SerializeField] private Animator animator;
+
+    [SerializeField] private float damagePerSecond = 0.1f;
+    [SerializeField] private float damageIncreasePerRotation = 0.01f; // Increase damage per rotation
+
+    [SerializeField] private CinemachineBasicMultiChannelPerlin cinemachineNoise;
+    [SerializeField] private float maxNoiseAmplitude = 30f;
+    [SerializeField] private float maxNoiseFrequency = 30f;
+
     private bool _iseating = false;
 
     public bool IsScreaming()
@@ -16,7 +25,7 @@ public class Sun : RotatingPlanet
         {
             return false; // If the scream emitter is not assigned, return false
         }
-        
+
         screamEmitter.EventInstance.getParameterByName("scream", out var screamParameter);
         return screamParameter > 0.5f; // Check if the scream parameter is greater than 0
     }
@@ -24,18 +33,43 @@ public class Sun : RotatingPlanet
     protected override void Update()
     {
         base.Update();
-        
-        if (screamEmitter == null || !screamEmitter.IsPlaying() || _iseating)
+
+        if (!(screamEmitter == null || !screamEmitter.IsPlaying() || _iseating))
         {
-            return;
+            screamEmitter.EventInstance.getParameterByName("scream", out var screamParameter);
+            var newScreamValue = Mathf.MoveTowards(screamParameter, 1f, Time.deltaTime * 0.3f);
+            newScreamValue = Mathf.Min(newScreamValue, GetMaxScreamValue(GetProgress()));
+            screamEmitter.EventInstance.setParameterByName("scream", newScreamValue);
         }
-        
-        screamEmitter.EventInstance.getParameterByName("scream", out var screamParameter);
-        var newScreamValue = Mathf.MoveTowards(screamParameter, 1f, Time.deltaTime * 0.3f);
-        newScreamValue = Mathf.Min(newScreamValue, GetMaxScreamValue(GetProgress()));
-        screamEmitter.EventInstance.setParameterByName("scream", newScreamValue);
+
+        DamageEarth();
+
     }
-    
+
+    private void DamageEarth()
+    {
+        if (screamEmitter == null || !screamEmitter.IsPlaying())
+        {
+            return; // If the scream emitter is not playing, do not damage the Earth
+        }
+
+        screamEmitter.EventInstance.getParameterByName("scream", out var screamParameter);
+
+        var damage = 0f;
+        if (screamParameter <= 0.5f)
+        {
+            damage = Mathf.Lerp(-1f, 0f , screamParameter * 2f); // Damage is negative when scream is low
+        }
+        else
+        {
+            damage = Mathf.Lerp(0f, damagePerSecond, (screamParameter - 0.5f) * 2f); // Damage increases as scream value increases
+        }
+        if (earth != null)
+        {
+            earth.Damage(damage * Time.deltaTime);
+        }
+    }
+
     private float GetMaxScreamValue(float progress)
     {
         if (progress < 0.8f)
@@ -60,6 +94,7 @@ public class Sun : RotatingPlanet
     {
         base.RestartRotation();
         screamEmitter.Stop();
+        damagePerSecond += damageIncreasePerRotation;
     }
 
     private void OnTriggerEnter(Collider other)
