@@ -30,14 +30,14 @@ public class PlayerThrow : MonoBehaviour
         Debug.Log("Mouse button pressed down, ready to throw item.");
         
         // raycast to check if the player is pointing at this object
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("UI"))) // Ensure the layer matches your PlayerThrow object
         {
             if (hit.collider.gameObject == gameObject)
             {
                 Debug.Log("Player is pointing at the PlayerThrow object.");
-                _startPosition = Input.mousePosition;
+                _startPosition = Mouse.current.position.ReadValue(); // Store the initial mouse position
                 _playerIsThrowing = true; // Set the flag to indicate the player is throwing
             }
             else
@@ -57,7 +57,7 @@ public class PlayerThrow : MonoBehaviour
     {
         
         _playerIsThrowing = false; // Reset the flag
-        Vector2 endPosition = Input.mousePosition; // Get the final mouse position
+        Vector2 endPosition = Mouse.current.position.ReadValue(); // Get the current mouse position when released
         Vector2 direction = endPosition - _startPosition; // Calculate the direction vector
 
         // Normalize the direction vector and apply a force to the player
@@ -68,6 +68,7 @@ public class PlayerThrow : MonoBehaviour
             Rigidbody itemRigidbody = item.GetComponent<Rigidbody>();
             if (itemRigidbody != null)
             {
+                itemRigidbody.linearVelocity = Vector3.zero; // Reset the item's velocity before applying the force
                 // Apply the force to the item
                 itemRigidbody.AddForce(new Vector3(force.x, force.y, 0), ForceMode.Impulse);
                 OnThrow?.Invoke(); // Invoke the OnThrow event if there are subscribers
