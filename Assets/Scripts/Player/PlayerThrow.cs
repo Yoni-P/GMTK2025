@@ -27,7 +27,6 @@ public class PlayerThrow : MonoBehaviour
 
     private void Pressed()
     {
-        Debug.Log("Mouse button pressed down, ready to throw item.");
         
         // raycast to check if the player is pointing at this object
         var ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -36,18 +35,9 @@ public class PlayerThrow : MonoBehaviour
         {
             if (hit.collider.gameObject == gameObject)
             {
-                Debug.Log("Player is pointing at the PlayerThrow object.");
                 _startPosition = Mouse.current.position.ReadValue(); // Store the initial mouse position
                 _playerIsThrowing = true; // Set the flag to indicate the player is throwing
             }
-            else
-            {
-                Debug.Log("Player is not pointing at the PlayerThrow object.");
-            }
-        }
-        else
-        {
-            Debug.Log("No object hit by the raycast.");
         }
          // Store the initial mouse position
         
@@ -72,18 +62,8 @@ public class PlayerThrow : MonoBehaviour
                 // Apply the force to the item
                 itemRigidbody.AddForce(new Vector3(force.x, force.y, 0), ForceMode.Impulse);
                 OnThrow?.Invoke(); // Invoke the OnThrow event if there are subscribers
-                Debug.Log("Item thrown with force: " + force);
-            }
-            else
-            {
-                Debug.LogError("Rigidbody not found on the item.");
             }
         }
-        else
-        {
-            Debug.LogWarning("No item to throw or PlayerPickup script is not set.");
-        }
-        
     }
 
     public event Action OnThrow;
