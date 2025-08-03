@@ -80,7 +80,18 @@ public class DayNightManager : MonoBehaviour
         {
             yield return null; // Wait for the next frame
         }
-        StartCoroutine(DayNightCycle(GetNextPlanet()));
+        if (!gameManager.IsGameOver())
+        {
+            StartCoroutine(DayNightCycle(GetNextPlanet()));
+        }
+        else
+        {
+            while (!planet.FinishedRotation)
+            {
+                yield return null; // Wait for the next frame
+            }
+            StartCoroutine(SlowMoonCycle());
+        }
     }
     
     private void Update()
@@ -91,7 +102,7 @@ public class DayNightManager : MonoBehaviour
             var intensity = 0f;
             foreach (var light in _globalLights)
             {
-                if (light != null)
+                if (light != null && light.isActiveAndEnabled)
                 {
                     intensity += light.intensity;
                 }

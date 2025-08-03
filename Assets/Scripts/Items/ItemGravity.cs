@@ -28,6 +28,11 @@ public class ItemGravity : MonoBehaviour
             throwSoundEmitter.Play(); // Play the throw sound
         }
     }
+    
+    public void SetGravityStrength(float strength)
+    {
+        gravityStrength = strength; // Set the gravity strength
+    }
 
 
     public bool IsHeld = false;
@@ -134,5 +139,13 @@ public class ItemGravity : MonoBehaviour
                 collider.excludeLayers = 0; // Reset to default layer
             }
         }
+    }
+
+    public event Action onDestroy;
+    
+    private void OnDestroy()
+    {
+        onDestroy?.Invoke(); // Invoke the destroy event
+        ResetCollisions(); // Reset collisions when the item is destroyed
     }
 }

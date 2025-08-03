@@ -272,3 +272,12 @@ MonoBehaviour:
   splineAnimator: {fileID: 3440539788377232952}
   lightSource: {fileID: 2278910218994614960}
   cameraTransform: {fileID: 0}
+  itemsToSpawn:
+  - {fileID: 1661557822653913227, guid: 11e44327d7b17d144ac529ab58275612, type: 3}
+  - {fileID: 3879719635721303366, guid: 5e61530b7f95ebf42880815df4af35bd, type: 3}
+  - {fileID: 4516908649682454960, guid: bc0871654b799ab4c9aae7f0a8e9730e, type: 3}
+  - {fileID: 1211627395869399861, guid: cfd244f01f056ec46a07945b3dbbf82d, type: 3}
+  - {fileID: 1425669808221845032, guid: e5d56256b1b7d814ba74ccc7096e49db, type: 3}
+  - {fileID: 6208962054679351252, guid: 7828a2533b5781948803f42c2e77e943, type: 3}
+  - {fileID: 7556070940003853120, guid: 7d787070f045b4d428401ff208888365, type: 3}
+  - {fileID: 3798220034341329098, guid: fbca872dd74c41444abbae466a3ff75e, type: 3}

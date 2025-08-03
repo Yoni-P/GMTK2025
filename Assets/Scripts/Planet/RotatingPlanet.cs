@@ -17,7 +17,7 @@ public class RotatingPlanet : MonoBehaviour
     private Coroutine lightCoroutine;
     
     public bool FinishedRotation { get; private set; } = false;
-    
+    public int RotationCount { get; private set; } = 0;
 
     private void Awake()
     {
@@ -32,6 +32,7 @@ public class RotatingPlanet : MonoBehaviour
             RestartRotation();
             gameObject.SetActive(false);
             FinishedRotation = true;
+            RotationCount++;
         };
     }
 

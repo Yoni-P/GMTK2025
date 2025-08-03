@@ -3205,6 +3205,7 @@ MonoBehaviour:
   maxHealth: 15
   cinemachineNoise: {fileID: 0}
   rumbleEmitter: {fileID: 8411247155021838206}
+  explosionEffect: {fileID: 0}
 --- !u!114 &1625931418712381082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3815,6 +3816,7 @@ GameObject:
   - component: {fileID: 5821750939577388766}
   - component: {fileID: 5758872806339844364}
   - component: {fileID: 3482931419434294022}
+  - component: {fileID: 8352582689453535287}
   m_Layer: 6
   m_Name: rock (7)
   m_TagString: Obstacle
@@ -3890,6 +3892,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &8352582689453535287
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7470212458946193176}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.008103761
+  m_Center: {x: -0.0013132233, y: -0.0028786827, z: 0.0022136988}
 --- !u!1 &7616163903562366655
 GameObject:
   m_ObjectHideFlags: 0

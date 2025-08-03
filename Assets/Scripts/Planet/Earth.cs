@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using FMODUnity;
 using Unity.Cinemachine;
@@ -15,7 +16,13 @@ public class Earth : MonoBehaviour
     
     [SerializeField] private StudioEventEmitter rumbleEmitter;
     
+    [SerializeField] private ParticleSystem explosionEffect; // Particle effect for Earth destruction
+
+    [SerializeField] private Rigidbody playerRb;
+    
     private float health;
+    private int numItemsOnEarth = 0; // Counter for items placed on Earth
+    private bool isDestroyed = false; // Flag to check if Earth is destroyed
     
     private void Start()
     {
@@ -35,6 +42,33 @@ public class Earth : MonoBehaviour
         transform.Rotate(Vector3.forward, rotationSpeed.x * Time.fixedDeltaTime, Space.World);
         // rotate around world x axis according to rotationSpeed.y
         transform.Rotate(Vector3.right, -rotationSpeed.y * Time.fixedDeltaTime, Space.World);
+    }
+    
+    public void AddItemToEarth(GameObject item)
+    {
+        if (item == null)
+        {
+            Debug.LogError("Item to add to Earth is null.");
+            return;
+        }
+        
+        numItemsOnEarth++;
+        var itemGravity = item.GetComponent<ItemGravity>();
+        if (itemGravity != null)
+        {
+            itemGravity.OnThrow(); // Call OnThrow to trigger any animations or effects
+            itemGravity.onDestroy += () => 
+            {
+                numItemsOnEarth--;
+                Debug.Log($"Item removed from Earth. Remaining items: {numItemsOnEarth}");
+            };
+        }
+        
+    }
+    
+    public int GetNumItemsOnEarth()
+    {
+        return numItemsOnEarth;
     }
 
     public void PlaceItemOnEarth(GameObject item)
@@ -82,6 +116,11 @@ public class Earth : MonoBehaviour
     
     public void Damage(float damage)
     {
+        if (isDestroyed)
+        {
+            return;
+        }
+        
         health -= damage;
         health = Mathf.Clamp(health, 0f, maxHealth); // Ensure health does not go below 0 or above maxHealth
         
@@ -107,8 +146,74 @@ public class Earth : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Earth has been destroyed!");
-            // Handle Earth destruction logic here
+            StartCoroutine(DestroyEarth());
         }
     }
     
+    public Action OnEarthDestroyed;
+    private IEnumerator DestroyEarth()
+    {
+        isDestroyed = true; // Set the flag to prevent further damage
+        explosionEffect.gameObject.SetActive(true);
+        
+        // add a rigidibody to every child of the Earth and apply an explosion force
+        
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var child = transform.GetChild(i);
+            
+            var rb = child.gameObject.GetComponent<Rigidbody>();
+            if (rb == null)
+            {
+                rb = child.gameObject.AddComponent<Rigidbody>();
+            }
+            rb.isKinematic = false; // Ensure the rigidbody is not kinematic
+            rb.AddExplosionForce(10f, transform.position, 5f); // Adjust force and radius as needed
+            rb.useGravity = true; // Enable gravity for the debris
+        }
+        
+        var items = FindObjectsByType<ItemGravity>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        foreach (var item in items)
+        {
+            item.SetGravityStrength(0f);
+        }
+        var planetRenderer = GetComponent<Renderer>();
+        if (planetRenderer != null)
+        {
+            planetRenderer.enabled = false; // Hide the Earth renderer
+        }
+        
+        var planetCollider = GetComponent<Collider>();
+        if (planetCollider != null)
+        {
+            planetCollider.enabled = false; // Disable the Earth collider
+        }
+        
+        if (playerRb != null)
+        {
+            playerRb.isKinematic = true; // Prevent player from moving during destruction
+            playerRb.transform.SetParent(null); // Detach player from Earth
+            playerRb.constraints = RigidbodyConstraints.None; // Remove all constraints
+            playerRb.AddExplosionForce(10f, transform.position, 5f); // Apply explosion force to the player
+            playerRb.useGravity = true; // Enable gravity for the player
+        }
+        
+        if (explosionEffect != null)
+        {
+            yield return new WaitForSeconds(explosionEffect.main.duration); // Wait for the effect to finish
+        }
+        
+        if (rumbleEmitter != null)
+        {
+            rumbleEmitter.Stop();
+        }
+        
+        if (cinemachineNoise != null)
+        {
+            cinemachineNoise.AmplitudeGain = 0f; // Reset the noise effect
+            cinemachineNoise.FrequencyGain = 0f;
+        }
+        
+        OnEarthDestroyed?.Invoke(); // Invoke the destruction event
+    }
 }
