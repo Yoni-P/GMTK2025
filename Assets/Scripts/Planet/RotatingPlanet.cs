@@ -49,13 +49,16 @@ public class RotatingPlanet : MonoBehaviour
 
     private void RotatePlanetToEarth()
     {
-        var dirToEarth = earth.transform.position - transform.position;
-        
-        var angle = Mathf.Atan2(dirToEarth.y, dirToEarth.x) * Mathf.Rad2Deg;
-        
-        var startAngle = 180f;
-        
-        transform.rotation = Quaternion.Euler(0, 0, startAngle + angle);
+        var cameraEarthAvg = (earth.transform.position + Camera.main.transform.position) / 2f;
+        var lookDir = cameraEarthAvg - transform.position;
+
+        transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);
+
+        // var angle = Mathf.Atan2(dirToEarth.y, dirToEarth.x) * Mathf.Rad2Deg;
+        //
+        // var startAngle = 90f;
+        //
+        // transform.rotation = Quaternion.Euler(0, 0, startAngle + angle);
     }
     
     public virtual void StartRotation()
