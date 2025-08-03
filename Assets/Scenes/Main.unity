@@ -1151,7 +1151,7 @@ PrefabInstance:
       objectReference: {fileID: 159897859}
     - target: {fileID: 139313735320046508, guid: a9ff740b527820b49b27d9f547e6f15f, type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 139313735320046508, guid: a9ff740b527820b49b27d9f547e6f15f, type: 3}
       propertyPath: explosionEffect
