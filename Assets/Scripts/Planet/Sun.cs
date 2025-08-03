@@ -79,9 +79,9 @@ public class Sun : RotatingPlanet
         }
     }
     
-    public override void StartRotation()
+    public override void StartRotation(float duration = 10f, bool overrideDuration = false)
     {
-        base.StartRotation();
+        base.StartRotation(duration, overrideDuration);
         
         screamEmitter.Play();
         screamEmitter.EventInstance.setParameterByName("scream", 0f);

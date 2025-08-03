@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Splines;
@@ -6,25 +7,31 @@ using UnityEngine.Splines;
 public class RotatingPlanet : MonoBehaviour
 {
     [SerializeField] protected float duration;
+    private float originalDuration;
     [SerializeField] protected Earth earth;
     [SerializeField] protected SplineAnimate splineAnimator;
     [SerializeField] private Light lightSource;
     [SerializeField] private Transform cameraTransform;
 
     private float maxLightIntensity;
-    private Sequence lightSequence;
+    private Coroutine lightCoroutine;
+    
+    public bool FinishedRotation { get; private set; } = false;
+    
 
     private void Awake()
     {
         maxLightIntensity = lightSource != null ? lightSource.intensity : 1f;
         lightSource.intensity = 0f; 
-        duration = splineAnimator.Duration;
+        originalDuration = duration;
+        splineAnimator.Duration = duration;
         
         splineAnimator.Completed += () =>
         {
             Debug.Log($"{gameObject.name} rotation completed.");
             RestartRotation();
             gameObject.SetActive(false);
+            FinishedRotation = true;
         };
     }
 
@@ -46,6 +53,7 @@ public class RotatingPlanet : MonoBehaviour
         {
             RotatePlanetToEarth();
         }
+        splineAnimator.Duration = duration;
     }
 
     private void RotatePlanetToEarth()
@@ -64,34 +72,63 @@ public class RotatingPlanet : MonoBehaviour
         // transform.rotation = Quaternion.Euler(0, 0, startAngle + angle);
     }
     
-    public virtual void StartRotation()
+    public virtual void StartRotation(float duration = 10f, bool overrideDuration = false)
     {
+        if (overrideDuration)
+        {
+            this.duration = duration;
+        }
+        else
+        {
+            this.duration = originalDuration;
+        }
         splineAnimator.Play();
+        FinishedRotation = false;
         if (lightSource != null)
         {
-            lightSource.intensity = 0f; // Reset light intensity
-            lightSequence = DOTween.Sequence();
-            lightSequence.Append(lightSource.DOIntensity(maxLightIntensity, duration / 2f))
-                .Append(lightSource.DOIntensity(0, duration / 2f))
-                .SetLoops(-1, LoopType.Restart);
+            lightSource.intensity = 0f;
+            if (lightCoroutine != null)
+            {
+                StopCoroutine(lightCoroutine);
+            }
+            lightCoroutine = StartCoroutine(LightPulse());
         }
     }
-    
-    // public void StopRotation()
-    // {
-    //     splineAnimator.Pause();
-    //     lightSequence?.Pause();
-    // }
+
+    private IEnumerator LightPulse()
+    {
+        var curProgress = GetProgress();
+        while (curProgress < 1f)
+        {
+            lightSource.intensity = curProgress < 0.5f ? Mathf.Lerp(0, maxLightIntensity, curProgress * 2f) : Mathf.Lerp(maxLightIntensity, 0, (curProgress - 0.5f) * 2f);
+            yield return null; // Wait for the next frame
+            curProgress = GetProgress();
+        }
+    }
 
     public virtual void RestartRotation()
     {
         splineAnimator.Restart(false);
-        lightSequence?.Kill();
+        if (lightCoroutine != null)
+        {
+            StopCoroutine(lightCoroutine);
+        }
         lightSource.intensity = 0;
     }
     
     public float GetProgress()
     {
         return splineAnimator.ElapsedTime / splineAnimator.Duration;
+    }
+    
+    public void SetDuration(float newDuration)
+    {
+        duration = newDuration;
+        splineAnimator.Duration = newDuration;
+    }
+    
+    public float GetDuration()
+    {
+        return duration;
     }
 }

@@ -838,7 +838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5470668821707418461
 Transform:
   m_ObjectHideFlags: 0
@@ -891,7 +891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e342193ee3b57644ebcf24982cd36a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 4.05
+  duration: 15
   earth: {fileID: 0}
   splineAnimator: {fileID: 6146274615460143113}
   lightSource: {fileID: 4297499292193773076}
@@ -899,8 +899,8 @@ MonoBehaviour:
   screamEmitter: {fileID: 4170142397177540016}
   eatEmitter: {fileID: 6215579306274462563}
   animator: {fileID: 8609176512730515682}
-  damagePerSecond: 1
-  damageIncreasePerRotation: 1
+  damagePerSecond: 0.5
+  damageIncreasePerRotation: 0.5
 --- !u!114 &4170142397177540016
 MonoBehaviour:
   m_ObjectHideFlags: 0

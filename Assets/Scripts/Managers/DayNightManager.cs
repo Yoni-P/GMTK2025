@@ -11,6 +11,8 @@ public class DayNightManager : MonoBehaviour
     [SerializeField] private Material skyMaterial; // Material to change the sky color
     
     [SerializeField] private StudioEventEmitter dayNightMusicEmitter; // FMOD event for day/night music
+    
+    [SerializeField] private GameManager gameManager; // Reference to the GameManager
 
     private RotatingPlanet[] _planets;
     private Light[] _globalLights;
@@ -20,6 +22,53 @@ public class DayNightManager : MonoBehaviour
     {
         _planets = new RotatingPlanet[] { sun, moon };  
         _globalLights = new Light[] { sun.GetComponentInChildren<Light>(), moon.GetComponentInChildren<Light>() };
+        StartCoroutine(SlowMoonCycle());
+    }
+
+    private IEnumerator SlowMoonCycle()
+    {
+        moon.gameObject.SetActive(true);
+        moon.StartRotation(30f, true); // Slower rotation for the moon
+        while (!moon.FinishedRotation)
+        {
+            yield return null; // Wait for the next frame
+            if (gameManager != null && gameManager.IsGameStarted())
+            {
+                StartCoroutine(HurryUpMoon());
+                yield break; // Exit if the game has started
+            }
+        }
+        Debug.Log("Slow moon cycle completed");
+        if (gameManager != null && gameManager.IsGameStarted())
+        {
+            StartCoroutine(DayNightCycle(_planets[_currentPlanetIndex]));
+            yield break; // Exit if the game has started
+        }
+        
+        moon.RestartRotation();
+        StartCoroutine(SlowMoonCycle());
+    }
+
+    private IEnumerator HurryUpMoon()
+    {
+        var curDuration = moon.GetDuration();
+        var targetDuration = 5f;
+        while (curDuration > targetDuration)
+        {
+            curDuration = Mathf.Lerp(curDuration, targetDuration, Time.deltaTime * 0.5f);
+            moon.SetDuration(curDuration);
+            if (moon.FinishedRotation)
+            {
+                break; // Exit if the moon has already progressed enough
+            }
+            yield return null; // Wait for the next frame
+        }
+
+        while (!moon.FinishedRotation)
+        {
+            Debug.Log($"Hurrying up moon: {moon.GetProgress()}");
+            yield return null; // Wait for the next frame
+        }
         StartCoroutine(DayNightCycle(_planets[_currentPlanetIndex]));
     }
 

@@ -95,7 +95,6 @@ public class ItemGravity : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Earth") && !IsHeld)
         {
-            Debug.Log("Item collided with Earth: " + gameObject.name);
             rb.constraints = RigidbodyConstraints.None;
             transform.SetParent(earth.transform); // Attach the item to the Earth when it collides
             if (_animator != null)

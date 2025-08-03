@@ -84,7 +84,6 @@ public class Earth : MonoBehaviour
     {
         health -= damage;
         health = Mathf.Clamp(health, 0f, maxHealth); // Ensure health does not go below 0 or above maxHealth
-        Debug.Log($"Earth damaged. Current health: {health}");
         
         // Trigger camera shake effect
         if (cinemachineNoise != null)

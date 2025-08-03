@@ -267,7 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 766fcb7eebb91ca4e829e5a03883db38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0
+  duration: 5
   earth: {fileID: 0}
   splineAnimator: {fileID: 3440539788377232952}
   lightSource: {fileID: 2278910218994614960}
+  cameraTransform: {fileID: 0}
