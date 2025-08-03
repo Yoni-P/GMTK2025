@@ -114,17 +114,20 @@ public class PlayerPickup : MonoBehaviour
         
         if (_timeOutItems.Contains(item))
         {
-            var rb = item.GetComponent<Rigidbody>();
-            
-            if (rb != null)
+            if (item != null)
             {
-                rb.excludeLayers = 0; // Reset the layer exclusion
-            }
-            
-            var itemGravity = item.GetComponent<ItemGravity>();
-            if (itemGravity != null)
-            {
-                itemGravity.ResetCollisions();
+                var rb = item.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                {
+                    rb.excludeLayers = 0; // Reset the layer exclusion
+                }
+
+                var itemGravity = item.GetComponent<ItemGravity>();
+                if (itemGravity != null)
+                {
+                    itemGravity.ResetCollisions();
+                }
             }
             
             _timeOutItems.Remove(item); // Remove the item from the timeout set

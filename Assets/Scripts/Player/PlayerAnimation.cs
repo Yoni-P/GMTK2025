@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
+    private static readonly int Running = Animator.StringToHash("Running");
+    private static readonly int Screaming = Animator.StringToHash("Screaming");
+    private static readonly int Holding = Animator.StringToHash("Holding");
+    private static readonly int Throw = Animator.StringToHash("Throw");
     [SerializeField] private Animator animator;
 
     [SerializeField] private PlayerMove playerMove;
@@ -45,16 +49,25 @@ public class PlayerAnimation : MonoBehaviour
         }
 
         // Set the animator parameters based on player movement and actions
-        animator.SetBool("Running", playerMove.IsRunning);
-        animator.SetBool("Screaming", sun.IsScreaming());
-        animator.SetBool("Holding", playerPickup.IsHoldingItem);
+        if (animator.GetBool(Running) != playerMove.IsRunning)
+        {
+            animator.SetBool(Running, playerMove.IsRunning);
+        }
+        if (animator.GetBool(Screaming) != sun.IsScreaming())
+        {
+            animator.SetBool(Screaming, sun.IsScreaming());
+        }
+        if (animator.GetBool(Holding) != playerPickup.IsHoldingItem)
+        {
+            animator.SetBool(Holding, playerPickup.IsHoldingItem);
+        }
     }
     
     private void OnThrow()
     {
         if (animator != null)
         {
-            animator.SetTrigger("Throw");
+            animator.SetTrigger(Throw);
         }
     }
     

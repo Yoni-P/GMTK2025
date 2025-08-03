@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Sun : RotatingPlanet
 {
+    private static readonly int Eat = Animator.StringToHash("Eat");
     [SerializeField] private StudioEventEmitter screamEmitter;
     [SerializeField] private Animator animator;
     private bool _iseating = false;
@@ -73,7 +74,7 @@ public class Sun : RotatingPlanet
 
     private IEnumerator EatItem(GameObject otherGameObject)
     {
-        animator.SetTrigger("Eat");
+        animator.SetTrigger(Eat);
         _iseating = true;
         float stopScreamTime = 0.5f; // Time to stop the scream before eating
         float t = 0f;

@@ -14453,7 +14453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPickup: {fileID: 7838276972570529132}
-  throwForce: 45
+  throwForce: 32
 --- !u!1 &4360809572117784328
 GameObject:
   m_ObjectHideFlags: 0
