@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Blend: 0.95196915
+    - _Blend: 0.9635919
     - _Position: 0.87
     - _QueueControl: 0
     - _QueueOffset: 0

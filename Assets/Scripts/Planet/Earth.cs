@@ -191,7 +191,7 @@ public class Earth : MonoBehaviour
         
         if (playerRb != null)
         {
-            playerRb.isKinematic = true; // Prevent player from moving during destruction
+            playerRb.isKinematic = false; // Prevent player from moving during destruction
             playerRb.transform.SetParent(null); // Detach player from Earth
             playerRb.constraints = RigidbodyConstraints.None; // Remove all constraints
             playerRb.AddExplosionForce(10f, transform.position, 5f); // Apply explosion force to the player

@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -12,6 +13,11 @@ public class GameManager : MonoBehaviour
     
     private bool isGameStarted = false;
     private bool isGameOver = false;
+
+    private void Start()
+    {
+        earth.OnEarthDestroyed += EarthDestroyed; // Subscribe to the EarthDestroyed event
+    }
 
     public void StartGame()
     {
