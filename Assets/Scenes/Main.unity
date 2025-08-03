@@ -1184,9 +1184,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 733276993}
     - target: {fileID: 2532703240630291035, guid: ea45688949b337e4d9ef044bf89acb27, type: 3}
+      propertyPath: damagePerSecond
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532703240630291035, guid: ea45688949b337e4d9ef044bf89acb27, type: 3}
       propertyPath: cinemachineNoise
       value: 
       objectReference: {fileID: 733276995}
+    - target: {fileID: 2532703240630291035, guid: ea45688949b337e4d9ef044bf89acb27, type: 3}
+      propertyPath: damageIncreasePerRotation
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5470668821707418461, guid: ea45688949b337e4d9ef044bf89acb27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.163288

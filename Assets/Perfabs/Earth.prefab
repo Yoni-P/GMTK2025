@@ -3202,7 +3202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earthCollider: {fileID: 8311552544374320398}
-  maxHealth: 30
+  maxHealth: 15
   cinemachineNoise: {fileID: 0}
   rumbleEmitter: {fileID: 8411247155021838206}
 --- !u!114 &1625931418712381082

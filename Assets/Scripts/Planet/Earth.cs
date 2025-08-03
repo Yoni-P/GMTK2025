@@ -90,7 +90,7 @@ public class Earth : MonoBehaviour
         if (cinemachineNoise != null)
         {
             cinemachineNoise.AmplitudeGain = Mathf.Clamp(maxHealth - health, 0f, maxHealth);
-            cinemachineNoise.FrequencyGain = Mathf.Clamp(maxHealth - health, 0f, maxHealth);
+            cinemachineNoise.FrequencyGain = Mathf.Clamp((maxHealth - health) / 2f, 0f, maxHealth / 2f);
         }
         
         if (rumbleEmitter != null)
@@ -100,7 +100,9 @@ public class Earth : MonoBehaviour
                 rumbleEmitter.Play();
             }
 
-            rumbleEmitter.EventInstance.setParameterByName("critical", Mathf.Clamp((maxHealth - health) / maxHealth, 0f, 1f));
+            // set global parameter "critical" to earths health percentage
+            float criticalValue = Mathf.Clamp01(1 - health / maxHealth);
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("critical", criticalValue);
         }
         
         if (health <= 0)

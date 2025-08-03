@@ -899,8 +899,8 @@ MonoBehaviour:
   screamEmitter: {fileID: 4170142397177540016}
   eatEmitter: {fileID: 6215579306274462563}
   animator: {fileID: 8609176512730515682}
-  damagePerSecond: 0.1
-  damageIncreasePerRotation: 0.01
+  damagePerSecond: 1
+  damageIncreasePerRotation: 1
 --- !u!114 &4170142397177540016
 MonoBehaviour:
   m_ObjectHideFlags: 0
