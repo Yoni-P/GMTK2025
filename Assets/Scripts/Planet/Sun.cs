@@ -100,7 +100,7 @@ public class Sun : RotatingPlanet
         {
             other.attachedRigidbody.isKinematic = true; // Prevent physics interactions while eating
             other.attachedRigidbody.transform.SetParent(transform); // Set the sun as the parent to keep the item in place
-            StartCoroutine(EatItem(other.gameObject));
+            StartCoroutine(EatItem(other.attachedRigidbody.gameObject));
         }
     }
 
