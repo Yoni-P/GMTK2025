@@ -69,7 +69,7 @@ public class ItemGravity : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (earth != null)
         {
@@ -77,7 +77,7 @@ public class ItemGravity : MonoBehaviour
         }
         if (hitSoundTimeout > 0f)
         {
-            hitSoundTimeout -= Time.deltaTime; // Decrease the timeout
+            hitSoundTimeout -= Time.fixedDeltaTime; // Decrease the timeout
         }
     }
 
