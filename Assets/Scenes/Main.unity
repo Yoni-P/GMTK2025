@@ -2598,6 +2598,10 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 733276993}
+    - target: {fileID: 2532703240630291035, guid: ea45688949b337e4d9ef044bf89acb27, type: 3}
+      propertyPath: healthRegenPerSecond
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5470668821707418461, guid: ea45688949b337e4d9ef044bf89acb27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.163288
