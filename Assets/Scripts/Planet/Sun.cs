@@ -15,6 +15,7 @@ public class Sun : RotatingPlanet
     [SerializeField] private float damageIncreasePerRotation = 0.01f; // Increase damage per rotation
 
     private bool _iseating = false;
+    [SerializeField] private float healthRegenPerSecond = 1f;
 
     public bool IsScreaming()
     {
@@ -55,7 +56,7 @@ public class Sun : RotatingPlanet
         var damage = 0f;
         if (screamParameter <= 0.5f)
         {
-            damage = Mathf.Lerp(-1f, 0f , screamParameter * 2f); // Damage is negative when scream is low
+            damage = Mathf.Lerp(-healthRegenPerSecond, 0f , screamParameter * 2f); // Damage is negative when scream is low
         }
         else
         {
